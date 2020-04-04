@@ -8,11 +8,12 @@ March 2020
 
 
 ********************************************************/
-#if !defined(SINGLE_LINKED_LIST_HPP)
-#define SINGLE_LINKED_LIST_HPP
+#if !defined(SINGLY_LINKED_LIST_HPP)
+#define SINGLY_LINKED_LIST_HPP
 
 // All declarations of library
-
+template <class T>
+extern class LinkedList<T>;
 template <class T>
 class Node
 {
@@ -24,7 +25,7 @@ public:
 template <class T>
 class LinkedList
 {
-    T count;
+    int count;
     Node<T> *head;
     Node<T> *tail;
 
@@ -36,4 +37,4 @@ public:
     ~LinkedList();
 };
 
-#endif // SINGLE_LINKED_LIST_HPP
+#endif // SINGLY_LINKED_LIST_HPP

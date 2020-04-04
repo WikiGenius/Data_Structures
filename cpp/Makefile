@@ -10,8 +10,8 @@
 # ********************************************************/
 # CFLAGS=-c -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wshadow
 
-CC=g++
-CFLAGS=-c  -std=c++17  
+CC=clang++
+CFLAGS=-c 
 LDLIBS=-lm
 bin_src=bin/
 lib=library/
@@ -21,8 +21,7 @@ linked_list=$(lib)linked_list/
 all: main
 
 main: main.o singly_linked_list.o doubly_linked_list.o
-	$(CC) $(LDLIBS) $(bin_src)main.o $(bin_src)singly_linked_list.o \
-$(bin_src)doubly_linked_list.o  -o main
+	$(CC)  $(bin_src)*.o -o main
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp -o $(bin_src)main.o
