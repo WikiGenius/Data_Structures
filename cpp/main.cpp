@@ -2,7 +2,7 @@
 #include <iostream>
 int main(int argc, char const *argv[])
 {
-    LinkedList<int> l;
+    SinglyLinkedList<int> l;
     l.append(2);
     l.append(4);
     l.append(3);

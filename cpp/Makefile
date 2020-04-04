@@ -20,18 +20,14 @@ linked_list=$(lib)linked_list/
 
 all: main
 
-main: main.o singly_linked_list.o doubly_linked_list.o
+main: main.o linked_list.o
 	$(CC)  $(bin_src)*.o -o main
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp -o $(bin_src)main.o
 
-singly_linked_list.o: $(linked_list)singly_linked_list.cpp $(linked_list)singly_linked_list.hpp
-	$(CC) $(CFLAGS) $(linked_list)singly_linked_list.cpp -o $(bin_src)singly_linked_list.o
-
-doubly_linked_list.o: $(linked_list)doubly_linked_list.cpp  $(linked_list)doubly_linked_list.hpp
-	$(CC) $(CFLAGS) $(linked_list)doubly_linked_list.cpp -o $(bin_src)doubly_linked_list.o
-
+linked_list.o: $(linked_list)linked_list.cpp
+	$(CC) $(CFLAGS) $(linked_list)linked_list.cpp -o $(bin_src)linked_list.o
 
 .PHONY: clean 
 

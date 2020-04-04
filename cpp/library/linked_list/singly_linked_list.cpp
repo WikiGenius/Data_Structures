@@ -1,15 +1,15 @@
 #include "singly_linked_list.hpp"
-#include <iostream>
 
+#include <iostream>
 template <class T>
-LinkedList<T>::LinkedList()
+SinglyLinkedList<T>::SinglyLinkedList()
 {
     head = NULL;
     tail = NULL;
     count = 0;
 }
 template <class T>
-void LinkedList<T>::append(T valueIn)
+void SinglyLinkedList<T>::append(T valueIn)
 {
     this->count += 1;
     Node<T> *n = (Node<T> *)malloc(sizeof(Node<T>));
@@ -32,12 +32,12 @@ void LinkedList<T>::append(T valueIn)
     }
 }
 template <class T>
-int LinkedList<T>::size()
+int SinglyLinkedList<T>::size()
 {
     return this->count;
 }
 template <class T>
-void LinkedList<T>::print()
+void SinglyLinkedList<T>::print()
 {
     Node<T> *node = head;
     while (node)
@@ -47,7 +47,7 @@ void LinkedList<T>::print()
     }
 }
 template <class T>
-LinkedList<T>::~LinkedList()
+SinglyLinkedList<T>::~SinglyLinkedList()
 {
     Node<T> *node = head;
     while (head)
