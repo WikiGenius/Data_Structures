@@ -31,8 +31,19 @@ class SinglyLinkedList
 public:
     SinglyLinkedList();
     void append(T valueIn);
+    void prepend(T valueIn);
+    void insert(int pos, T valueIn);
+    void search(T valueIn);
+    void remove(T valueIn);
+    void pop();
+    void to_vector();
     int size();
     void print();
     ~SinglyLinkedList();
 };
+// friend functions
+template <class T>
+void reverse(SinglyLinkedList<T> linked_list);
+template <class T>
+bool iscircular(SinglyLinkedList<T> linked_list);
 #endif // SINGLY_LINKED_LIST_HPP
