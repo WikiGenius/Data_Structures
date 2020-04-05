@@ -6,7 +6,7 @@ till now and I will update it them especially the C++ folder because it is a com
 In C or Cpp folder
 
 ```bash
-make all && ./main;
+mkdir bin/ && make all && ./main;
 ```
 
 ## Inventory
