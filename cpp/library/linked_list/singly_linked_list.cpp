@@ -120,24 +120,28 @@ int SinglyLinkedList<T>::search(T valueIn)
 }
 
 template <class T>
-void SinglyLinkedList<T>::pop_back()
+T SinglyLinkedList<T>::pop_back()
 { //space O(1) time O(n)
     this->count -= 1;
     Node<T> *n = this->head;
     for (; n->next != this->tail; n = n->next)
         ;
+    T value = this->tail->value;
     delete this->tail;
     this->tail = n;
     this->tail->next = NULL;
+    return value;
 }
 
 template <class T>
-void SinglyLinkedList<T>::pop_forward()
+T SinglyLinkedList<T>::pop_forward()
 { //space O(1) time O(1)
     this->count -= 1;
     Node<T> *n = this->head->next;
+    T value = this->head->value;
     delete this->head;
     this->head = n;
+    return value;
 }
 template <class T>
 void SinglyLinkedList<T>::remove(T valueIn)
@@ -176,6 +180,27 @@ void SinglyLinkedList<T>::remove(T valueIn)
     }
 }
 template <class T>
+void SinglyLinkedList<T>::reverse()
+{ //space O(n) time O(n)
+    if (this->size() == 0)
+    {
+        return;
+    }
+    SinglyLinkedList<T> l;
+    Node<T> *node = this->head;
+    while (node)
+    {
+        l.prepend(node->value);
+        node = node->next;
+    }
+    this->clear();
+
+    this->head = l.head;
+    this->tail = l.tail;
+    this->count = l.count;
+    l.head = NULL;
+}
+template <class T>
 std::vector<T> SinglyLinkedList<T>::to_vector()
 { // space O(n) time O(n)
     std::vector<T> vec;
@@ -204,8 +229,9 @@ void SinglyLinkedList<T>::print()
     std::cout << std::endl;
 }
 template <class T>
-SinglyLinkedList<T>::~SinglyLinkedList()
-{ // space O(1)   time O(n)
+void SinglyLinkedList<T>::clear()
+{
+    // space O(1)   time O(n)
     Node<T> *node = this->head;
     while (this->head)
     {
@@ -213,4 +239,47 @@ SinglyLinkedList<T>::~SinglyLinkedList()
         delete this->head;
         this->head = node;
     }
+    this->head = NULL;
+    this->tail = NULL;
+    this->count = 0;
+}
+template <class T>
+SinglyLinkedList<T>::~SinglyLinkedList()
+{ // space O(1)   time O(n)
+    this->clear();
+}
+template <typename T>
+void SinglyLinkedList<T>::operator=(const SinglyLinkedList<T> &linked_list)
+{ // space O(1)   time O(1)
+    // copy by reference
+    this->head = linked_list.head;
+    this->tail = linked_list.tail;
+    this->count = linked_list.count;
+}
+template <typename T>
+bool iscircular(const SinglyLinkedList<T> &linked_list)
+{ // space O(1)   time O(n)
+    // runners algorithm
+    if (linked_list.count == 0)
+    {
+        return false;
+    }
+    Node<T> *slow = linked_list.head;
+    Node<T> *fast = linked_list.head;
+    while (fast->next)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+template <typename T>
+void make_loop_test(const SinglyLinkedList<T> &linked_list)
+{
+    Node<T> *node = linked_list.head->next;
+    linked_list.tail->next = node;
 }

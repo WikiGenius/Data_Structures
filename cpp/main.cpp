@@ -1,3 +1,13 @@
+/********************************************************
+
+main file
+
+Author: Muhammed El-Yamani
+muhammedelyamani92@gmail.com
+March 2020
+
+
+********************************************************/
 #include "library/library.hpp"
 #include <iostream>
 using namespace std;
@@ -11,7 +21,6 @@ void print_test(int value, int solution);
 int main(int argc, char const *argv[])
 {
     SinglyLinkedList<int> l;
-
     l.prepend(4);
     l.append(2);
     l.prepend(4);
@@ -49,6 +58,17 @@ int main(int argc, char const *argv[])
     l.remove(50);
     print_test(l.to_vector(), {-9, 9, 4, 4, 2});
     print_test(l.size(), 5);
+
+    print_test(iscircular(l), 0);
+
+    // make_loop_test(l);
+    // print_test(iscircular(l), 1);
+    l.reverse();
+    print_test(l.to_vector(), {2, 4, 4, 9, -9});
+    l.append(3);
+    l.prepend(-23);
+    l.append(73);
+    print_test(l.to_vector(), {-23, 2, 4, 4, 9, -9, 3, 73});
     return 0;
 }
 
