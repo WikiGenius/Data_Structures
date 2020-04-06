@@ -51,7 +51,4 @@ public:
     friend void make_loop_test(const SinglyLinkedList<m> &linked_list); // space O(1)   time O(1
 } __attribute__((__packed__));
 
-template <typename T>
-void reverse(SinglyLinkedList<T> linked_list);
-
 #endif // SINGLY_LINKED_LIST_HPP

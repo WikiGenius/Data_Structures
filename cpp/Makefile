@@ -14,19 +14,17 @@ CFLAGS=-c -ggdb3 -Wall -Werror
 LDLIBS=-lm
 bin_src=bin/
 lib=library/
-linked_list=$(lib)linked_list/
-
 
 all: main
 
-main: main.o linked_list.o
+main: main.o library.o
 	$(CC)  $(bin_src)*.o -o main
 
-main.o: main.cpp
+main.o: main.cpp $(lib)library.hpp
 	$(CC) $(CFLAGS) main.cpp -o $(bin_src)main.o
 
-linked_list.o: $(linked_list)linked_list.cpp
-	$(CC) $(CFLAGS) $(linked_list)linked_list.cpp -o $(bin_src)linked_list.o
+library.o: $(lib)library.cpp
+	$(CC) $(CFLAGS) $(lib)library.cpp -o $(bin_src)library.o
 
 .PHONY: clean 
 
