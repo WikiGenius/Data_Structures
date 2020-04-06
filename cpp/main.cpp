@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
     print_test(s.pop(),11);
     print_test(s.pop(),10);
     print_test(s.size(),9);
-
+    
     return 0;
 }
 
