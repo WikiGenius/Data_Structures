@@ -1,6 +1,6 @@
 /********************************************************
 
-stack definitions 
+stack definitions using array concept
 
 Author: Muhammed El-Yamani
 muhammedelyamani92@gmail.com
@@ -12,7 +12,7 @@ March 2020
 #include "stack_arr.hpp"
 
 template <class T>
-Stack<T>::Stack(int initial_size)
+Stack_Arr<T>::Stack_Arr(int initial_size)
 { //space O(n)    time O(n)
     this->vec.assign(initial_size, 0);
     this->num_elements = 0;
@@ -20,11 +20,11 @@ Stack<T>::Stack(int initial_size)
     this->capacity = initial_size;
 }
 template <class T>
-void Stack<T>::push(T data)
+void Stack_Arr<T>::push(T data)
 { //space O(1)    time O(1)
     if (this->capacity == this->num_elements)
     {
-        std::cout << "Out of space! Increasing Stack capacity ...\n";
+        std::cout << "Out of space! Increasing Stack_Arr capacity ...\n";
         this->__handle_capacity_stack();
     }
     this->vec[this->next_index] = data;
@@ -33,23 +33,23 @@ void Stack<T>::push(T data)
 }
 
 template <class T>
-void Stack<T>::__handle_capacity_stack()
+void Stack_Arr<T>::__handle_capacity_stack()
 { //space O(n)    time O(n)
     this->vec.resize(2 * this->capacity, 0);
     this->capacity *= 2;
 }
 template <class T>
-int Stack<T>::size()
+int Stack_Arr<T>::size()
 { //space O(1)    time O(1)
     return this->num_elements;
 }
 template <class T>
-bool Stack<T>::is_empty()
+bool Stack_Arr<T>::is_empty()
 { //space O(1)    time O(1)
     return this->num_elements == 0;
 }
 template <class T>
-T Stack<T>::pop()
+T Stack_Arr<T>::pop()
 { //space O(1)    time O(1)
     if (this->is_empty())
     {
@@ -62,7 +62,7 @@ T Stack<T>::pop()
     return data;
 }
 template <class T>
-std::vector<T> Stack<T>::get_stack()
+std::vector<T> Stack_Arr<T>::get_stack()
 { //space O(1)    time O(1)
     return this->vec;
 }

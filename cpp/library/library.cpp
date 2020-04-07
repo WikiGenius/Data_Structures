@@ -12,6 +12,7 @@ March 2020
 #include "linked_list/singly_linked_list.cpp"
 #include "linked_list/doubly_linked_list.cpp"
 #include "stack/stack_arr.cpp"
+#include "stack/stack_linked.cpp"
 
 typedef int TYPE;
 
@@ -21,4 +22,5 @@ template bool iscircular(const SinglyLinkedList<TYPE> &linked_list);
 template void make_loop_test(const SinglyLinkedList<TYPE> &linked_list);
 
 // Stack
-template class Stack<TYPE>;
+template class Stack_Arr<TYPE>;
+template class Stack_L<TYPE>;

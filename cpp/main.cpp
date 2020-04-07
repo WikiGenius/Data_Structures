@@ -11,7 +11,7 @@ March 2020
 #include "library/library.hpp"
 #include <iostream>
 using namespace std;
-
+int count = 0;
 template <typename T>
 bool test(vector<T> vec, vector<T> solution);
 template <typename T>
@@ -20,14 +20,14 @@ void print_test(int value, int solution);
 
 int main(int argc, char const *argv[])
 {
-    Stack<int> s;
+    Stack_L<int> s;
     print_test(s.size(), 0);
     print_test(s.is_empty(), 1);
-    print_test(s.get_stack(), {0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+    print_test(s.get_stack(), {});
     s.push(6);
     s.push(-2);
     print_test(s.size(), 2);
-    print_test(s.get_stack(), {6, -2, 0, 0, 0, 0, 0, 0, 0, 0});
+    print_test(s.get_stack(), {6, -2});
     s.push(3);
     s.push(4);
     s.push(5);
@@ -40,11 +40,14 @@ int main(int argc, char const *argv[])
     print_test(s.get_stack(), {6, -2, 3, 4, 5, 6, 7, 8, 9, 10});
     s.push(11);
     print_test(s.size(), 11);
-    print_test(s.get_stack(), {6, -2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0});
-    print_test(s.pop(),11);
-    print_test(s.pop(),10);
-    print_test(s.size(),9);
-    
+    print_test(s.get_stack(), {6, -2, 3, 4, 5, 6, 7, 8, 9, 10, 11});
+    print_test(s.pop(), 11);
+
+    print_test(s.pop(), 10);
+
+    print_test(s.size(), 9);
+    s.clear();
+    print_test(s.size(), 0);
     return 0;
 }
 
@@ -69,23 +72,25 @@ bool test(vector<T> vec, vector<T> solution)
 template <typename T>
 void print_test(vector<T> vec, vector<T> solution)
 {
+    count += 1;
     if (test(vec, solution))
     {
-        cout << "pass\n";
+        cout << "#" << count << " pass\n";
     }
     else
     {
-        cout << "fail\n";
+        cout << "#" << count << " fail\n";
     }
 }
 void print_test(int value, int solution)
 {
+    count += 1;
     if (value == solution)
     {
-        cout << "pass\n";
+        cout << "#" << count << " pass\n";
     }
     else
     {
-        cout << "fail\n";
+        cout << "#" << count << " fail\n";
     }
 }

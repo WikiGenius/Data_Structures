@@ -1,6 +1,6 @@
 /********************************************************
 
-stack header file
+stack header file using array concept
 
 Author: Muhammed El-Yamani
 muhammedelyamani92@gmail.com
@@ -14,7 +14,7 @@ March 2020
 // All declarations of library
 
 template <class T>
-class Stack
+class Stack_Arr
 {
 private:
     std::vector<T> vec;
@@ -24,7 +24,7 @@ private:
     void __handle_capacity_stack(); //space O(n)    time O(n)
 
 public:
-    Stack(int initial_size = 10); //space O(n)    time O(n)
+    Stack_Arr(int initial_size = 10); //space O(n)    time O(n)
     void push(T data);            //space O(1)    time O(1)
     int size();                   //space O(1)    time O(1)
     bool is_empty();              //space O(1)    time O(1)

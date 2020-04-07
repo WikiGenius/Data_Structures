@@ -11,15 +11,9 @@ March 2020
 #if !defined(SINGLY_LINKED_LIST_HPP)
 #define SINGLY_LINKED_LIST_HPP
 #include <vector>
-// All declarations of library
+#include "../basic_structures/node.hpp"
 
-template <class T>
-class Node
-{
-public:
-    T value;
-    Node *next;
-} __attribute__((__packed__));
+// All declarations of library
 
 template <class T>
 class SinglyLinkedList
