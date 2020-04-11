@@ -14,6 +14,8 @@ March 2020
 #include "stack/stack_arr.cpp"
 #include "stack/stack_linked.cpp"
 #include "queue/queue_arr.cpp"
+#include "queue/queue_linked.cpp"
+
 typedef int TYPE;
 
 // Singly Linked List
@@ -27,3 +29,4 @@ template class Stack_L<TYPE>;
 
 // Queue
 template class Queue_Arr<TYPE>;
+template class Queue_L<TYPE>;
