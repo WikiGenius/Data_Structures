@@ -20,34 +20,42 @@ void print_test(int value, int solution);
 
 int main(int argc, char const *argv[])
 {
-    Stack_L<int> s;
-    print_test(s.size(), 0);
-    print_test(s.is_empty(), 1);
-    print_test(s.get_stack(), {});
-    s.push(6);
-    s.push(-2);
-    print_test(s.size(), 2);
-    print_test(s.get_stack(), {6, -2});
-    s.push(3);
-    s.push(4);
-    s.push(5);
-    s.push(6);
-    s.push(7);
-    s.push(8);
-    s.push(9);
-    s.push(10);
-    print_test(s.size(), 10);
-    print_test(s.get_stack(), {6, -2, 3, 4, 5, 6, 7, 8, 9, 10});
-    s.push(11);
-    print_test(s.size(), 11);
-    print_test(s.get_stack(), {6, -2, 3, 4, 5, 6, 7, 8, 9, 10, 11});
-    print_test(s.pop(), 11);
+    Queue_Arr<int> q(2);
+    print_test(q.is_empty(), 1);
+    q.dequeue();
+    q.enqueue(1);
+    q.enqueue(2);
+    print_test(q.size(), 2);
 
-    print_test(s.pop(), 10);
+    q.enqueue(3);
+    print_test(q.dequeue(), 1);
+    print_test(q.dequeue(), 2);
 
-    print_test(s.size(), 9);
-    s.clear();
-    print_test(s.size(), 0);
+    q.enqueue(4);
+    q.enqueue(5);
+    print_test(q.get_queue(), {5, 0, 3, 4});
+    print_test(q.size(), 3);
+    q.enqueue(6);
+    print_test(q.get_queue(), {5, 6, 3, 4});
+    q.enqueue(7);
+    print_test(q.get_queue(), {3, 4, 5, 6, 7, 0, 0, 0});
+    q.enqueue(8);
+    q.enqueue(9);
+    q.enqueue(10);
+
+    print_test(q.get_queue(), {3, 4, 5, 6, 7, 8, 9, 10});
+    print_test(q.dequeue(), 3);
+    print_test(q.dequeue(), 4);
+    print_test(q.dequeue(), 5);
+    print_test(q.get_queue(), {0, 0, 0, 6, 7, 8, 9, 10});
+
+    q.enqueue(11);
+    q.enqueue(12);
+    q.enqueue(13);
+    print_test(q.get_queue(), {11, 12, 13, 6, 7, 8, 9, 10});
+    q.enqueue(14);
+    print_test(q.get_queue(), {6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 0, 0, 0, 0, 0, 0});
+
     return 0;
 }
 

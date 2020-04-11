@@ -13,7 +13,7 @@ March 2020
 #include "linked_list/doubly_linked_list.cpp"
 #include "stack/stack_arr.cpp"
 #include "stack/stack_linked.cpp"
-
+#include "queue/queue_arr.cpp"
 typedef int TYPE;
 
 // Singly Linked List
@@ -24,3 +24,6 @@ template void make_loop_test(const SinglyLinkedList<TYPE> &linked_list);
 // Stack
 template class Stack_Arr<TYPE>;
 template class Stack_L<TYPE>;
+
+// Queue
+template class Queue_Arr<TYPE>;
